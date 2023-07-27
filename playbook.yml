@@ -1,7 +1,10 @@
-- name: install nginx
+- name: Install Nginx on CentOS/RHEL
   hosts: all
   become: yes
   vars:
     ansible_python_interpreter: /usr/bin/python3.6
-  roles:
-    - nginx
+  tasks:
+    - name: Install Nginx
+      package:
+        name: nginx
+        state: present
