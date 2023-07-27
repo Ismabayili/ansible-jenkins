@@ -1,15 +1,28 @@
 - name: Install Nginx on CentOS/RHEL
   hosts: all
   become: yes
-  vars:
-    ansible_python_interpreter: /usr/bin/python3.6
   tasks:
+    - name: Create temporary dnf config file
+      copy:
+        content: |
+          [main]
+          enabled=1
+          gpgcheck=1
+          [nginx]
+          enabled=0
+        dest: /etc/dnf/dnf.conf.tmp
+
     - name: Disable dnf module filtering for Nginx
-      dnf:
-        name: nginx
-        state: latest
-        disable_modular: yes
+      shell: mv /etc/dnf/dnf.conf.tmp /etc/dnf/dnf.conf
+      args:
+        warn: no
+
     - name: Install Nginx
       dnf:
         name: nginx
         state: present
+
+    - name: Enable dnf module filtering for Nginx
+      shell: mv /etc/dnf/dnf.conf /etc/dnf/dnf.conf.tmp
+      args:
+        warn: no
