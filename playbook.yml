@@ -5,6 +5,7 @@
     ansible_python_interpreter: /usr/bin/python3.6
   tasks:
     - name: Install Nginx
+      dnf:
       package:
         name: nginx
         state: present
