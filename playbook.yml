@@ -4,6 +4,11 @@
   vars:
     ansible_python_interpreter: /usr/bin/python3.6
   tasks:
+    - name: Disable dnf module filtering for Nginx
+      dnf:
+        name: nginx
+        state: latest
+        disable_modular: yes
     - name: Install Nginx
       dnf:
         name: nginx
