@@ -6,8 +6,16 @@
       dnf:
         name: nginx
         state: present
-
-    - name: Enable dnf module filtering for Nginx
-      shell: mv /etc/dnf/dnf.conf /etc/dnf/dnf.conf.tmp
+    - name: Disable dnf module filtering for Nginx
+      copy:
+        content: |
+          [main]
+          enabled=1
+          gpgcheck=1
+          [nginx]
+          enabled=0
+        dest: /etc/dnf/dnf.conf.tmp
+    - name: Move dnf config file back
+      shell: mv /etc/dnf/dnf.conf.tmp /etc/dnf/dnf.conf
       args:
         warn: no
