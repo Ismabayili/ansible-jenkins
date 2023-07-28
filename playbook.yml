@@ -6,7 +6,7 @@
   tasks:
     - name: Disable appstream repo
     ini_file:
-      dest: /etc/yum.repos.d/CentOS-AppStream.repo
+      dest: /etc/yum.repos.d/CentOS-Stream-AppStream.repo
       section: AppStream
       option: enabled
       value: 0
