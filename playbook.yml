@@ -1,12 +1,8 @@
 - name: Install Nginx on CentOS/RHEL
   hosts: all
   become: yes
-  vars:
-    ansible_python_interpreter: /usr/bin/python3.6
   tasks:
     - name: Install Nginx
       package:
         name: nginx
         state: present
-      environment:
-        ANSIBLE_YUM_ARGS: "--setopt=module_platform_id= --setopt=module_hotfixes=1"
