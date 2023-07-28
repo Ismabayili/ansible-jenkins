@@ -1,21 +1,15 @@
-- name: Update all packages on CentOS/RHEL
+- name: Update all packages and install Nginx on CentOS/RHEL
   hosts: all
   become: yes
   vars:
     ansible_python_interpreter: /usr/bin/python3.6
   tasks:
     - name: Update all packages
-      dnf:
+      yum:
         name: '*'
         state: latest
-      vars:
-        ansible_dnf_default_release: '{{ ansible_distribution_major_version }}'
 
-- name: Install Nginx on CentOS/RHEL
-  hosts: all
-  become: yes
-  tasks:
     - name: Install Nginx
-      dnf:
+      yum:
         name: nginx
         state: present
