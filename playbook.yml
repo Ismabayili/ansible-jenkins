@@ -5,6 +5,8 @@
     ansible_python_interpreter: /usr/bin/python3.6
   tasks:
     - name: Install Nginx
-      command: dnf install -y nginx --setopt=module_platform_id=
+      dnf:
+        name: nginx
+        state: present
       environment:
-        ANSIBLE_BECOME_PASS: "votre_mot_de_passe_sudo"
+        ANSIBLE_DNF_ARGS: "--setopt=module_platform_id= --setopt=module_hotfixes=1"
