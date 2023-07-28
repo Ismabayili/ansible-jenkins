@@ -8,3 +8,5 @@
       dnf:
         name: nginx
         state: present
+        environment:
+          DNF_FLAGS: "module_platform_id='' module_hotfixes=1" 
