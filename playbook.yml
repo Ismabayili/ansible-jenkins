@@ -1,14 +1,14 @@
-- name: Update all packages and install Nginx on CentOS/RHEL
+- name: Update all packages and install Nginx on ubuntu
   hosts: all
   become: yes
   vars:
     ansible_python_interpreter: /usr/bin/python3.6
   tasks:
 #    - name: Update all packages
- #     yum:
+ #     apt:
   #      name: '*'
    #     state: latest
     - name: Install Nginx
-      yum:
+      apt:
         name: nginx
         state: present
