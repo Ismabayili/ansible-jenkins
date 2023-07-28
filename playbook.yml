@@ -8,3 +8,5 @@
       dnf:
         name: nginx
         state: present
+        become_user: root
+        become_ask_pass: yes
