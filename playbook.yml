@@ -1,6 +1,6 @@
 - name: Update all packages and install Nginx on ubuntu
   hosts: all
-  become: yes
+  sudo: yes
   vars:
     ansible_python_interpreter: /usr/bin/Python 3.10.7
   tasks:
