@@ -7,6 +7,10 @@
     - name: Install Nginx
       dnf:
         name: nginx
+        command: dnf install -y nginx
         state: present
         environment:
           DNF_FLAGS: "module_platform_id='' module_hotfixes=1" 
+ 
+      
+
