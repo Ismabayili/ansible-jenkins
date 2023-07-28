@@ -11,4 +11,4 @@
         disable_gpg_check: yes
         disable_excludes: main
         enablerepo: "*"
-        disablerepo: "AppStream
+        disablerepo: "AppStream"
