@@ -4,6 +4,12 @@
   vars:
     ansible_python_interpreter: /usr/bin/python3.6
   tasks:
+    - name: Disable appstream repo
+    ini_file:
+      dest: /etc/yum.repos.d/CentOS-AppStream.repo
+      section: AppStream
+      option: enabled
+      value: 0
     - name: Install Nginx
       yum:
         name: nginx
