@@ -2,7 +2,7 @@
   hosts: all
   become: yes
   vars:
-    ansible_python_interpreter: /usr/bin/python3.7
+    ansible_python_interpreter: /usr/bin/python3.10
   tasks:
     - name: Update all packages
       apt:
