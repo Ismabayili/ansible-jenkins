@@ -8,5 +8,3 @@
       yum:
         name: nginx
         state: present
-      vars:
-        ansible_become_pass: "votre_mot_de_passe_sudo"
