@@ -5,6 +5,8 @@
     ansible_python_interpreter: /usr/bin/python3.6
   tasks:
     - name: Install Nginx
-      command: dnf install -y nginx
-      module_platform_id: ''
-      module_hotfixes: yes
+      dnf:
+        name: nginx
+        state: present
+        module_platform_id: ''
+        module_hotfixes: yes
