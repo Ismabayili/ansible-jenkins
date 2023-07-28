@@ -1,8 +1,19 @@
+- name: Update all packages on CentOS/RHEL
+  hosts: all
+  become: yes
+  tasks:
+    - name: Update all packages
+      dnf:
+        name: '*'
+        state: latest
+      vars:
+        ansible_dnf_default_release: '{{ ansible_distribution_major_version }}'
+
 - name: Install Nginx on CentOS/RHEL
   hosts: all
   become: yes
   tasks:
     - name: Install Nginx
-      package:
+      dnf:
         name: nginx
         state: present
