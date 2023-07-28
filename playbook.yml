@@ -1,6 +1,7 @@
 - name: Update all packages on CentOS/RHEL
   hosts: all
   become: yes
+  ansible_python_interpreter: /usr/bin/python3.6
   tasks:
     - name: Update all packages
       dnf:
