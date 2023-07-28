@@ -3,15 +3,11 @@
   become: yes
   vars:
     ansible_python_interpreter: /usr/bin/python3.6
+    DNF_FLAGS: "module_platform_id='' module_hotfixes=1"
   tasks:
-    - name: Disable appstream repo
-      ini_file:
-        dest: /etc/yum.repos.d/CentOS-AppStream.repo
-        section: AppStream
-        option: enabled
-        value: 0
-
     - name: Install Nginx
-      yum:
+      dnf:
         name: nginx
         state: present
+      environment:
+        DNF_FLAGS: "{{ DNF_FLAGS }}"
