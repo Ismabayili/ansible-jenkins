@@ -3,11 +3,8 @@
   become: yes
   vars:
     ansible_python_interpreter: /usr/bin/python3.6
-    YUM_FLAGS: "module_platform_id='' module_hotfixes=1"
   tasks:
     - name: Install Nginx
-      yum:
-        name: nginx
-        state: present
+      command: dnf install -y nginx --setopt=module_platform_id=
       environment:
-        YUM_FLAGS: "{{ YUM_FLAGS }}"
+        ANSIBLE_BECOME_PASS: "votre_mot_de_passe_sudo"
