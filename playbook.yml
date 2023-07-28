@@ -5,8 +5,8 @@
     ansible_python_interpreter: /usr/bin/python3.6
   tasks:
     - name: Install Nginx
-      dnf:
+      yum:
         name: nginx
         state: present
-        module_platform_id: ''
-        module_hotfixes: yes
+      vars:
+        ansible_become_pass: "votre_mot_de_passe_sudo"
