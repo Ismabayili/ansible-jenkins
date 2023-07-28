@@ -6,5 +6,6 @@
   tasks:
     - name: Install Nginx
       command: dnf install -y nginx
+      warn: no  # Pour supprimer le message d'avertissement
       environment:
         DNF_FLAGS: "module_platform_id='' module_hotfixes=1"
