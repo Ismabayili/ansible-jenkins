@@ -11,7 +11,7 @@
 
     - name: Install Nginx
       roles:
-           - nginx
+        - nginx
   #    apt:
    #     name: nginx
       #  state: present
