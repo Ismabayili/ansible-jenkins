@@ -1,15 +1,5 @@
-- name: Update all packages and install Nginx on Ubuntu
+- name: install nginx
   hosts: all
   become: yes
-  vars:
-    ansible_python_interpreter: /usr/bin/python3.10
-  tasks:
-    - name: Update all packages
-      apt:
-        upgrade: yes
-        update_cache: yes
-
-    - name: Install Nginx
-      apt:
-        name: nginx
-        state: present
+  roles:
+    - nginx
